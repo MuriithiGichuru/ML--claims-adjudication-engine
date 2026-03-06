@@ -1,11 +1,13 @@
-### 1 - Requirements
+# 1. - Requirements
 
 pandas>=2.0.0
 numpy>=1.24.0
 pymupdf>=1.23.0
 scikit-learn>=1.3.0
 
-### 2 - README.md
+---
+
+# 2. - README.md
 
 # ML Claims Adjudication Engine
 
@@ -16,7 +18,15 @@ Built for accuracy, speed, and explainability — tailored for the Kenyan insura
 
 ---
 
-# Features
+# 3. Project video
+
+Watch a short video explain the Approach, Methodology and improvements of the ML model.
+
+(https://drive.google.com/file/d/1FgtA5dDyJfyzKWNpx7xUW19kDBJUOdua/view)
+
+---
+
+# 4. Features
 
 - Supports both **CSV** and **PDF** input
 - Hybrid ML model: Random Forest (70%) + Isolation Forest (30%)
@@ -30,14 +40,15 @@ Built for accuracy, speed, and explainability — tailored for the Kenyan insura
 
 ---
 
-# Quick Start
+# 5. Quick Start
 
 pip install -r requirements.txt
 
 python claims_adjudication_engine.py --input sample_claims.csv
 
+---
 
-# Output: 
+# 6. Output: 
 
 {
   "status": "completed",
@@ -55,12 +66,13 @@ python claims_adjudication_engine.py --input sample_claims.csv
   "model_version": "1.0"
 }
 
+---
 
-# Model Overview
+# 7. Model Overview
 
 Primary Model: RandomForestClassifier (120 trees, balanced class weight)
+
 Anomaly Detector: IsolationForest (contamination = 0.06)
+
 Risk Score Formula: 0.7 × Fraud Probability + 0.3 × Anomaly Score
-
-
 
