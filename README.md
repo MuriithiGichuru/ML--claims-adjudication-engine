@@ -28,26 +28,35 @@ Watch a short video explain the Approach, Methodology and improvements of the ML
 
 # 4. Architecture
 
-![Claims Adjudication System Architecture](https://i.imgur.com/2vL9kP8.png)
+## Architecture
 
-*High-level architecture showing the complete flow from claim input to final decision*
+**System Flow:**
+
+a. **Input Layer**  
+   - Accepts claims from CSV files or PDF documents
+
+b. **Ingestion Layer**  
+   - Extracts structured data using PyMuPDF and regex parsing
+
+c. **Feature Engineering Layer**  
+   - Creates 9 key features (amount_ratio, over_tariff, hist_frequency, etc.)
+
+d. **Hybrid ML Engine**  
+   - RandomForestClassifier (70% weight) – learns complex patterns  
+   - IsolationForest (30% weight) – detects anomalies
+
+e. **Decision Layer**  
+   - Calculates final Risk Score  
+   - Applies exact thresholds:  
+     - 0.0 – 0.3 → ✅ Pass  
+     - 0.3 – 0.7 → ⚠️ Flag  
+     - 0.7 – 1.0 → ❌ Fail
+
+f. **Output Layer**  
+   - Generates clean JSON with risk_score, decision, confidence, and reason
 ---
 
-# 5. Features
-
-- Supports both **CSV** and **PDF** input
-- Hybrid ML model: Random Forest (70%) + Isolation Forest (30%)
-- Exact probability thresholds:
-  - `0.0 – 0.3` → ✅ Pass
-  - `0.3 – 0.7` → ⚠️ Flag
-  - `0.7 – 1.0` → ❌ Fail
-- Reason for each decision is easily readable
-- Clean JSON output
-- Works with or without historical training data
-
----
-
-# 6. Model Overview
+# 5. Model Overview
 
 Primary Model: RandomForestClassifier (120 trees, balanced class weight)
 
@@ -57,8 +66,7 @@ Risk Score Formula: 0.7 × Fraud Probability + 0.3 × Anomaly Score
 
 ---
 
-
-# 7. Assumptions & Trade-offs
+# 6. Assumptions & Trade-offs
 ## Assumptions:
 
 1. Claims data follows reasonably structured text format
@@ -73,7 +81,7 @@ Risk Score Formula: 0.7 × Fraud Probability + 0.3 × Anomaly Score
 
 ---
 
-# 8. Quick Start
+# 7. Quick Start
 
 pip install -r requirements.txt
 
@@ -81,7 +89,7 @@ python claims_adjudication_engine.py --input sample_claims.csv
 
 ---
 
-# 9. Output: 
+# 8. Output: 
 
 {
   "status": "completed",
