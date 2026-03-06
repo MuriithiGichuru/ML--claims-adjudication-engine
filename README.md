@@ -28,9 +28,9 @@ Watch a short video explain the Approach, Methodology and improvements of the ML
 
 # 4. Architecture
 
-![Architecture Diagram](https://i.imgur.com/uXxC4.jpg)
+![System Architecture](https://i.imgur.com/2vL9kP8.png)
 
-*Automated Insurance Claims Processing Pipeline using AI*
+*High-level architecture of the Claims Adjudication Engine*
 ---
 
 # 5. Features
