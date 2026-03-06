@@ -26,7 +26,22 @@ Watch a short video explain the Approach, Methodology and improvements of the ML
 
 ---
 
-# 4. Features
+# 4. Architecture
+
+```mermaid
+flowchart TD
+    A[Input: CSV or PDF] --> B[Ingestion Layer<br/>(PyMuPDF + Regex)]
+    B --> C[Feature Engineering<br/>(9 features)]
+    C --> D[Hybrid ML Engine]
+    D --> E1[RandomForestClassifier<br/>(70% weight)]
+    D --> E2[IsolationForest<br/>(30% weight)]
+    E1 & E2 --> F[Risk Score Calculation]
+    F --> G[Decision Thresholds<br/>(0.0-0.3 Pass | 0.3-0.7 Flag | 0.7-1.0 Fail)]
+    G --> H[JSON Output + Reason]
+
+---
+
+# 5. Features
 
 - Supports both **CSV** and **PDF** input
 - Hybrid ML model: Random Forest (70%) + Isolation Forest (30%)
@@ -40,7 +55,33 @@ Watch a short video explain the Approach, Methodology and improvements of the ML
 
 ---
 
-# 5. Quick Start
+# 6. Model Overview
+
+Primary Model: RandomForestClassifier (120 trees, balanced class weight)
+
+Anomaly Detector: IsolationForest (contamination = 0.06)
+
+Risk Score Formula: 0.7 × Fraud Probability + 0.3 × Anomaly Score
+
+---
+
+
+# 7. Assumptions & Trade-offs
+## Assumptions:
+
+1. Claims data follows reasonably structured text format
+2. Fraud rate is approximately 7%
+3. Synthetic data was used for training due to unavailability of real labeled claims
+
+## Trade-offs:
+
+1. Prioritized explainability and speed over maximum accuracy (chose Random Forest over deep learning)
+2. Used regex-based PDF extraction (fast but less robust for highly unstructured PDFs)
+3. Sacrificed some sophistication for maintainability and ease of deployment
+
+---
+
+# 8. Quick Start
 
 pip install -r requirements.txt
 
@@ -48,7 +89,7 @@ python claims_adjudication_engine.py --input sample_claims.csv
 
 ---
 
-# 6. Output: 
+# 9. Output: 
 
 {
   "status": "completed",
@@ -68,11 +109,4 @@ python claims_adjudication_engine.py --input sample_claims.csv
 
 ---
 
-# 7. Model Overview
-
-Primary Model: RandomForestClassifier (120 trees, balanced class weight)
-
-Anomaly Detector: IsolationForest (contamination = 0.06)
-
-Risk Score Formula: 0.7 × Fraud Probability + 0.3 × Anomaly Score
 
