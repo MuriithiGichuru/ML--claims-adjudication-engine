@@ -28,9 +28,9 @@ Watch a short video explain the Approach, Methodology and improvements of the ML
 
 # 4. Architecture
 
-![System Architecture](https://i.imgur.com/2vL9kP8.png)
+![Claims Adjudication System Architecture](https://i.imgur.com/2vL9kP8.png)
 
-*High-level architecture of the Claims Adjudication Engine*
+*High-level architecture showing the complete flow from claim input to final decision*
 ---
 
 # 5. Features
