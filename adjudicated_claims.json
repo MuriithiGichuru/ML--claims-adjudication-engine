@@ -1,0 +1,64 @@
+{
+  "status": "completed",
+  "total_claims": 8,
+  "adjudicated_claims": [
+    {
+      "claim_id": 10001,
+      "risk_score": 0.2076,
+      "decision": "✅ Pass",
+      "confidence": 20.8,
+      "reason": "Low risk profile"
+    },
+    {
+      "claim_id": 10002,
+      "risk_score": 0.3311,
+      "decision": "⚠️ Flag",
+      "confidence": 33.1,
+      "reason": "High claim frequency"
+    },
+    {
+      "claim_id": 10003,
+      "risk_score": 0.2344,
+      "decision": "✅ Pass",
+      "confidence": 23.4,
+      "reason": "Low risk profile"
+    },
+    {
+      "claim_id": 10004,
+      "risk_score": 0.3988,
+      "decision": "⚠️ Flag",
+      "confidence": 39.9,
+      "reason": "High claim frequency, High claim amount"
+    },
+    {
+      "claim_id": 10005,
+      "risk_score": 0.1106,
+      "decision": "✅ Pass",
+      "confidence": 11.1,
+      "reason": "Low risk profile"
+    },
+    {
+      "claim_id": 10006,
+      "risk_score": 0.2768,
+      "decision": "✅ Pass",
+      "confidence": 27.7,
+      "reason": "High claim frequency"
+    },
+    {
+      "claim_id": 10007,
+      "risk_score": 0.3178,
+      "decision": "⚠️ Flag",
+      "confidence": 31.8,
+      "reason": "Low risk profile"
+    },
+    {
+      "claim_id": 10008,
+      "risk_score": 0.1422,
+      "decision": "✅ Pass",
+      "confidence": 14.2,
+      "reason": "Low risk profile"
+    }
+  ],
+  "generated_at": "2026-03-06T20:13:40.708909",
+  "model_version": "1.0"
+}
