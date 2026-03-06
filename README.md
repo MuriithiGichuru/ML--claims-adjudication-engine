@@ -28,17 +28,9 @@ Watch a short video explain the Approach, Methodology and improvements of the ML
 
 # 4. Architecture
 
+![Architecture Diagram](https://i.imgur.com/uXxC4.jpg)
 
-## flowchart 
-    A[Input: CSV or PDF] --> B[Ingestion Layer<br/>(PyMuPDF + Regex)]
-    B --> C[Feature Engineering<br/>(9 features)]
-    C --> D[Hybrid ML Engine]
-    D --> E1[RandomForestClassifier<br/>(70% weight)]
-    D --> E2[IsolationForest<br/>(30% weight)]
-    E1 & E2 --> F[Risk Score Calculation]
-    F --> G[Decision Thresholds<br/>(0.0-0.3 Pass | 0.3-0.7 Flag | 0.7-1.0 Fail)]
-    G --> H[JSON Output + Reason]
-
+*Automated Insurance Claims Processing Pipeline using AI*
 ---
 
 # 5. Features
