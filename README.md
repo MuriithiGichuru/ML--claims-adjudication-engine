@@ -28,8 +28,8 @@ Watch a short video explain the Approach, Methodology and improvements of the ML
 
 # 4. Architecture
 
-```mermaid
-flowchart TD
+
+## flowchart 
     A[Input: CSV or PDF] --> B[Ingestion Layer<br/>(PyMuPDF + Regex)]
     B --> C[Feature Engineering<br/>(9 features)]
     C --> D[Hybrid ML Engine]
