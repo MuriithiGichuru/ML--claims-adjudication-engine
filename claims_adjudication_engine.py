@@ -167,15 +167,16 @@ class ClaimsAdjudicationEngine:
 
 # ====================== MAIN ======================
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="AI Claims Adjudication Engine")
-    parser.add_argument("--input", required=True, help="claims.csv or claims.pdf")
-    parser.add_argument("--historical", default=None, help="Optional historical CSV")
-    args = parser.parse_args()
+   
+    input_file = "sample_claims.csv"  
+
+    print(f"🚀 Starting Claims Adjudication Engine...")
+    print(f"Processing file: {input_file}\n")
 
     engine = ClaimsAdjudicationEngine()
-    engine.train_models(args.historical)
+    engine.train_models()                    # Trains using synthetic data
 
-    claims_df = engine.ingest_data(args.input)
+    claims_df = engine.ingest_data(input_file)
     results = engine.adjudicate(claims_df)
 
     output = {
@@ -191,4 +192,4 @@ if __name__ == "__main__":
     with open("adjudicated_claims.json", "w", encoding="utf-8") as f:
         json.dump(output, f, indent=2, ensure_ascii=False)
 
-    print(f"\n✅ JSON saved to: adjudicated_claims.json")
+    print(f"\n✅ Success! Results saved to adjudicated_claims.json")
